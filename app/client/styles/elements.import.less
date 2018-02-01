@@ -8,11 +8,24 @@
 }
 
 .red {
-    color: @colorError;
+    color: @colorOrange !important;
 }
 
 .blue {
     color: @colorBlue;
+}
+
+.dapp-modal-container{
+    background: #FCFEFF !important;
+}
+
+h2{
+    background: none !important;
+}
+
+.dapp-header nav > ul > li a.active {
+    color: #f0f0f0 !important;
+    border-bottom: 5px solid #2edde9;
 }
 
 span.address {
@@ -64,7 +77,8 @@ span.address {
     padding-right: @defaultPaddingHorizontal/2;
     margin-right: @defaultMargin;
     margin-bottom: @defaultMargin;
-    .box-sizing(border-box);
+    background-color:#3c3b36
+    box-sizing(border-box);
     border: 0;
 
     // ANIMATION
@@ -92,6 +106,7 @@ span.address {
         h3 {
             margin-top: 0;
             text-align: left;
+            color: #292e31 !important;
         }
     }
 
@@ -111,14 +126,13 @@ span.address {
     }
 
     &.wallets {
-        .background-image(linear-gradient(to right,  lighten(@colorBackgroundHeader, 12%) 0%, rgba(255,255,255, 0.1) 100%));
         overflow: hidden;
     }
     &.tokens {
         perspective: 800px;
         position: relative;
         background-repeat: repeat-y;
-        background-color: @colorGray;
+        background-color: @colorWhite;
         background-size: cover;
         // background-size: @gridWidth * 3;
         background-position-x: 4px;
@@ -232,7 +246,6 @@ span.address {
     > h3 {
         margin: 0;
         margin-top: 4px;
-        color: @colorLink;
         max-width: @gridWidth*4.4;
         float: left;
 
@@ -260,7 +273,7 @@ span.address {
         &.account-id {
             font-size: 0.8em;
             line-height: 1.4em;
-            color: fadeout(@colorTextSecondary, 40%);
+            color: fadeout(@colorWhite, 40%);
 
             &.creating {
                 color: @colorWhite;
@@ -330,7 +343,7 @@ span.address {
 
         span.balance {
             text-align: right;
-            color: @colorTextSecondary;
+            color: @colorWhite;
         }
 
         span.ether-symbol {
@@ -578,10 +591,10 @@ table {
 
 // Ace Editor Error Highlight
 .errorMarker {
-  position:absolute;
-  background: #FF0000;
-  z-index:20;
-  opacity: 0.2;
+    position:absolute;
+    background: #FF0000;
+    z-index:20;
+    opacity: 0.2;
 }
 
 
@@ -603,95 +616,11 @@ table {
     }
 }
 
-
-// Alert
-.alert-banner {
-  z-index: 100;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(255, 221, 221, 0.97);
-  left: 0;
-  padding: 12.26666667px 80px 24.53333333px;
-  -webkit-transition: all 300ms ease-out;
-  opacity: 1;
-
-  &.is-hidden {
-    bottom: -500px;
-    opacity: 0;
-  }
-
-  h1 {
-    color: @colorError;
-    font-weight: bold;
-    margin: initial;
-  }
-
-  p {
-    color: @colorError;
-  }
-
-  .close-button {
-    position: absolute;
-    font-size: 30px;
-    right: 1em;
-    top: 0.5em;
-    color: @colorError;
-  }
-
-  .button {
-    display: inline-block;
-    border-radius: 8px;
-    padding: 8px 10px;
-    margin-top: 0.3em;
-    margin-right: 0.3em;
-
-    background: white;
-    color: rgb(75, 75, 75);
-    font-weight: 400;
-
-    &:active, &:focus {
-      outline: 0;
+.dapp-container{
+    p{
+        a{
+            color: black;
+            font-weight: bolder;
+        }
     }
-  }
-
-  .download-button {
-    background: @colorLink;
-    color: white;
-  }
-}
-
-.alert-bubble {
-  position: fixed;
-  bottom: .75em;
-  right: .75em;
-
-  border-radius: 50%;
-  background: @colorError;
-  font-size: 1.25em;
-
-  &.is-hidden {
-    display: none;
-  }
-
-  button {
-    animation: jiggle 0.4s infinite;
-    animation-delay: 2s;
-    animation-direction: alternate-reverse;
-    transform-origin: 50% 10%;
-    color: white;
-    width: 35px;
-    height: 35px;
-
-    &:active, &:focus {
-      outline: 0;
-      border: 0;
-    }
-  }
-}
-
-
-@keyframes jiggle {
-  0% { transform: rotate(-10deg); }
-  100% { transform: rotate(10deg); }
 }

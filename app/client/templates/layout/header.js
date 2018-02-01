@@ -28,10 +28,14 @@ Template['layout_header'].helpers({
         var address = web3.toChecksumAddress(FlowRouter.getParam('address'));  
         var accounts = EthAccounts.find({}).fetch();
 
+        var addressWithFunds = accounts.filter(function(account) {
+            return account.balance > 0;
+        });
+
         // For some reason the path /send/ doesn't show tokens anymore
         return (address)
             ? FlowRouter.path('sendFrom', {from: address})
-            : FlowRouter.path('sendFrom', {from: accounts[0] ? accounts[0].address : null });
+            : FlowRouter.path('sendFrom', {from: addressWithFunds[0] ? addressWithFunds[0].address : null });
     },
     /**
     Calculates the total balance of all accounts + wallets.
@@ -45,7 +49,7 @@ Template['layout_header'].helpers({
 
         var balance = _.reduce(_.pluck(_.union(accounts, wallets), 'balance'), function(memo, num){ return memo + Number(num); }, 0);
 
-        updateMistBadge();
+        updateDHIBadge();
 
         return balance;
     },

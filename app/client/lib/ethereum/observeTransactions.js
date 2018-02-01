@@ -259,7 +259,6 @@ Observe transactions and pending confirmations
 */
 observeTransactions = function(){
 
-
     /**
     Checking for confirmations of transactions.
 
@@ -274,8 +273,6 @@ observeTransactions = function(){
         if(!tx.confirmed && tx.transactionHash) {
 
             var updateTransactions = function(e, blockHash){
-                console.log('updateTransactions', e, blockHash);
-
                 if(!e) {
                     var confirmations = (tx.blockNumber && EthBlocks.latest.number) ? (EthBlocks.latest.number + 1) - tx.blockNumber : 0;
                     confCount++;
@@ -290,7 +287,7 @@ observeTransactions = function(){
                     }
 
 
-                    if(confirmations < ethereumConfig.requiredConfirmations && confirmations >= 0) {
+                    if(confirmations < hotelbyteConfig.requiredConfirmations && confirmations >= 0) {
                         Helpers.eventLogs('Checking transaction '+ tx.transactionHash +'. Current confirmations: '+ confirmations);
 
 
@@ -320,7 +317,7 @@ observeTransactions = function(){
 
                     }
 
-                    if(confirmations > ethereumConfig.requiredConfirmations || confCount > ethereumConfig.requiredConfirmations*2) {
+                    if(confirmations > hotelbyteConfig.requiredConfirmations || confCount > hotelbyteConfig.requiredConfirmations*2) {
 
                         // confirm after a last check
                         web3.eth.getTransaction(tx.transactionHash, function(e, transaction){
@@ -423,10 +420,10 @@ observeTransactions = function(){
                !newDocument.exchangeRates.eur ||
                !newDocument.exchangeRates.gbp ||
                !newDocument.exchangeRates.brl)) {
-                var url = 'https://min-api.cryptocompare.com/data/pricehistorical?fsym=ETH&tsyms=BTC,USD,EUR,GBP,BRL&ts='+ newDocument.timestamp;
+                var url = 'https://min-api.cryptocompare.com/data/pricehistorical?fsym=HBC&tsyms=BTC,USD,EUR,GBP,BRL&ts='+ newDocument.timestamp;
 
-                if(typeof mist !== 'undefined')
-                    url += '&extraParams=Mist-'+ mist.version;
+                if(typeof dhi !== 'undefined')
+                    url += '&extraParams=DHI-'+ dhi.version;
 
                 HTTP.get(url, function(e, res){
 

@@ -1,19 +1,20 @@
-updateMistBadge = function(){
+updateDHIBadge = function(){
     var conf = PendingConfirmations.findOne({operation: {$exists: true}});
-    // set total balance in Mist menu, of no pending confirmation is Present
-    if(typeof mist !== 'undefined' && (!conf || !conf.confirmedOwners.length)) {
+
+    // set total balance in DHI menu, of no pending confirmation is Present
+    if(typeof dhi !== 'undefined' && (!conf || !conf.confirmedOwners.length)) {
+
         var accounts = EthAccounts.find({}).fetch();
         var wallets = Wallets.find({owners: {$in: _.pluck(accounts, 'address')}}).fetch();
-
         var balance = _.reduce(_.pluck(_.union(accounts, wallets), 'balance'), function(memo, num){ return memo + Number(num); }, 0);
 
-        mist.menu.setBadge(EthTools.formatBalance(balance, '0.0 a','ether') + ' ETH');
+        dhi.menu.setBadge(EthTools.formatBalance(balance, '0.0 a','ether') + ' HBC');
     }
 };
 
 // ADD MIST MENU
-updateMistMenu = function(){
-    if(typeof mist === 'undefined')
+updateDHIMenu = function(){
+    if(typeof dhi === 'undefined')
         return;
 
     var accounts = _.union(Wallets.find({}, {sort: {name: 1}}).fetch(), EthAccounts.find({}, {sort: {name: 1}}).fetch());
@@ -24,16 +25,17 @@ updateMistMenu = function(){
     Meteor.setTimeout(function(){
         var routeName = FlowRouter.current().route.name;
 
-        // add/update mist menu
-        mist.menu.clear();
-        mist.menu.add('wallets',{
+        // add/update dhi menu
+        dhi.menu.clear();
+        dhi.menu.add('wallets',{
             position: 1,
             name: TAPi18n.__('wallet.app.buttons.wallet'),
             selected: routeName === 'dashboard'
         }, function(){
             FlowRouter.go('/');
         });
-        mist.menu.add('send',{
+
+        dhi.menu.add('send',{
             position: 2,
             name: TAPi18n.__('wallet.app.buttons.send'),
             selected: routeName === 'send' || routeName === 'sendTo'
@@ -42,10 +44,10 @@ updateMistMenu = function(){
         });
 
         _.each(accounts, function(account, index){
-            mist.menu.add(account._id,{
+            dhi.menu.add(account._id,{
                 position: 3 + index,
                 name: account.name,
-                badge: EthTools.formatBalance(account.balance, "0 a", 'ether')+ ' ETH',
+                badge: EthTools.formatBalance(account.balance, "0 a", 'ether')+ ' HBC',
                 selected: (location.pathname === '/account/'+ account.address)
             }, function(){
                 FlowRouter.go('/account/'+ account.address);
@@ -60,6 +62,6 @@ updateMistMenu = function(){
 Meteor.startup(function() {
 
     // make reactive
-    Tracker.autorun(updateMistMenu);
+    Tracker.autorun(updateDHIMenu);
 
 });

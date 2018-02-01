@@ -23,8 +23,8 @@
             "texts": {
                 "note": "Примечание",
                 "balance": "Баланс",
-                "connectionErrorMist": "Подключение не получилось. Пожалуйста запустите geth используя:<br><br><small><code>__node__</code><br><br>Убедитесь, что установлен правильный путь IPC по умолчанию, если вы используете особый <code>datadir</code>, например<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Ethereum/geth.ipc</code><br>or<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.ethereum/geth.ipc</code>. <br><br>Можно добавить: <code>--unlock &lt;yourAccount&gt;.</code></small>",
-                "connectionErrorBrowser": "Подключение не получилось. Попробуйте запустить geth с такими параметрами:<br><br><small><code>__node__</code><br><br>Можно добавить: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorDHI": "Подключение не получилось. Пожалуйста запустите ghbc используя:<br><br><small><code>__node__</code><br><br>Убедитесь, что установлен правильный путь IPC по умолчанию, если вы используете особый <code>datadir</code>, например<br><code>ghbc --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Hotelbyte/ghbc.ipc</code><br>or<br><code>ghbc --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.hotelbyte/ghbc.ipc</code>. <br><br>Можно добавить: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorBrowser": "Подключение не получилось. Попробуйте запустить ghbc с такими параметрами:<br><br><small><code>__node__</code><br><br>Можно добавить: <code>--unlock &lt;yourAccount&gt;.</code></small>",
                 "pendingConfirmationsBadge": "Ожидаем подтверждения!",
                 "nodeSyncing": "осталось __blockDiff__ блоков",
                 "blockReceived": "Получено новых блоков",
@@ -37,7 +37,7 @@
                 }
             },
             "error": {
-                "wrongChain": "Кажется вы не в той цепочке, перезапустите Ethereum Wallet App!"
+                "wrongChain": "Кажется вы не в той цепочке, перезапустите Hotelbyte Wallet App!"
             },
             "warnings": {
                 "txOriginVulnerabilityWallet": "Этот умный контракт кошелек имеет устаревший код и подлежит фишинга.",
@@ -92,7 +92,7 @@
             "buttons": {
                 "deposit": "Пополнить Эфиром",
                 "depositBitcoin": "Пополнить используя Биткоин",
-                "viewOnExplorer": "View on Etherscan",
+                "viewOnExplorer": "View on HotelCoinscan",
                 "copyAddress": "Копировать адрес",
                 "scanQRCode": "Показать QR-Код",
                 "showInterface": "Показать Интерфейс"
@@ -252,7 +252,7 @@
             "texts": {
                 "ownerPaysGas": "Газ оплачивается владельцем контракта кошелька",
                 "sendAmount": "Вы желаете отправить <strong>__amount__</strong>.",
-                "sendAmountEquivalent": "Вы желаете отправить <strong>__amount__</strong> эфира, используя курс с <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Что в данный момент эквивалентно <strong>__etherAmount__</strong>.",
+                "sendAmountEquivalent": "Вы желаете отправить <strong>__amount__</strong> эфира, используя курс с <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Что в данный момент эквивалентно <strong>__hotelcoinAmount__</strong>.",
                 "sendToken": "Вы хотите отправить <strong>__amount__ __symbol__</strong> от <strong> __name__</strong>.",
                 "overDailyLimit": "<p class=\"over-daily\">Этот платеж превышает дневной лимит на __limit__ ( __total__ в день), вам требуется подтверждение __count__ других аккаутнов.</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">Этот платеж превышает дневной лимит на __limit__ ( __total__ в день), вам требуется подтверждение __count__ других аккаунтов.</p>",
@@ -277,7 +277,7 @@
             "title": "Собственные <strong>Жетоны</strong>",
             "subTitle": "Добавить жетоны",
             "admin": "__name__ (страница администратора)",
-            "description": "Жетоны — это валюты и другие ценные бумаги построенные на платформе Эфириум. Для того чтобы видеть жетоны определенного типа, вы должны добавить их адрес в список. Вы можете создать свой личный тип жетонов слегка модифицировав <a href=\"https://ethereum.org/token#the-code\" target=\"_blank\">этот пример простого контракта</a> или детально изучив <a href=\"https://www.ethereum.org/token\" target=\"_blank\">Жетоны Эфириума</a>.",
+            "description": "Жетоны — это валюты и другие ценные бумаги построенные на платформе Эфириум. Для того чтобы видеть жетоны определенного типа, вы должны добавить их адрес в список. Вы можете создать свой личный тип жетонов слегка модифицировав <a href=\"https://hotelbyte.org/token#the-code\" target=\"_blank\">этот пример простого контракта</a> или детально изучив <a href=\"https://www.hotelbyte.org/token\" target=\"_blank\">Жетоны Эфириума</a>.",
             "deleteToken": "Вы действительно хотите удалить жетон <strong>__token__</strong> из вашего списка?",
             "addedToken": "Добавить __token__ в ваш список жетонов",
             "editedToken": "Редактировать жетон __token__",
@@ -305,7 +305,7 @@
             "writeToContract": "Писать в контракт",
             "pickContract": "Выбрать контракт",
             "pickFunction": "Выбрать функцию",
-            "noContract": "<p>Вставьте код контракта сюда. Вы можете найти много примеров контрактов на <a href=\"http://ethereum.org\" target=\"_blank\">ethereum.org</a>: </p> <ul><li><a href=\"http://ethereum.org/token\" target=\"_blank\">Создать жетон</a></li><li><a href=\"http://ethereum.org/crowdsale\" target=\"_blank\">Начать краудсэйл</a></li><li><a href=\"http://ethereum.org/dao\" target=\"_blank\">Создать блокчейн организацию</a></li></ul>",
+            "noContract": "<p>Вставьте код контракта сюда. Вы можете найти много примеров контрактов на <a href=\"http://hotelbyte.org\" target=\"_blank\">hotelbyte.org</a>: </p> <ul><li><a href=\"http://hotelbyte.org/token\" target=\"_blank\">Создать жетон</a></li><li><a href=\"http://hotelbyte.org/crowdsale\" target=\"_blank\">Начать краудсэйл</a></li><li><a href=\"http://hotelbyte.org/dao\" target=\"_blank\">Создать блокчейн организацию</a></li></ul>",
             "buttons": {
                 "showContractInfo": "Показать информацию о контракте",
                 "hideContractInfo": "Спрятать информацию контракта",

@@ -23,29 +23,29 @@ Template.registerHelper('debug', function(object){
 });
 
 /**
-Check if in mist
+Check if in dhi
 
-@method (isMist)
+@method (isDHI)
 **/
-Template.registerHelper('isMist', function(){
-    return (typeof mist !== 'undefined');
+Template.registerHelper('isDHI', function(){
+    return (typeof dhi !== 'undefined');
 });
 
 /**
-Check if in mist and in mist mode
+Check if in dhi and in dhi mode
 
-@method (isMistMode)
+@method (isDHIMode)
 **/
 Template.registerHelper('isWalletMode', function(){
-    return window.mistMode === 'wallet' || typeof mist === 'undefined'; // also show network info in normal browsers
+    return window.dhiMode === 'wallet' || typeof dhi === 'undefined'; // also show network info in normal browsers
 });
 
 /**
 Check if currenct unit is an ether unit
 
-@method (isEtherUnit)
+@method (isHotelCoinUnit)
 **/
-Template.registerHelper('isEtherUnit', function(){
+Template.registerHelper('isHotelCoinUnit', function(){
     var unit = EthTools.getUnit();
     return !(unit === 'usd' || unit === 'eur' || unit === 'btc');
 });

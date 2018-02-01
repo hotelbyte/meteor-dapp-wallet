@@ -32,19 +32,16 @@ contractVersions = [
 // CHECK FOR NETWORK
 web3.eth.getBlock(0, function(e, res){
     if(!e){
+        console.log('Checking network, ' + res.hash);
         switch(res.hash) {
-            case '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3':
+            case '0xe2a30a54390f2a58b9db5da3042f73e189bb655f61d1a79a3df41b7964115011':
                 Session.set('network', 'main');
-                break;
-            case '0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177':
-                Session.set('network', 'rinkeby');
-                break;
-            case '0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d':
-                Session.set('network', 'ropsten');
                 break;
             default:
                 Session.set('network', 'private');
         }
+    } else {
+        console.log(e);
     }
 });
 
@@ -87,7 +84,7 @@ var deployTestnetWallet = function() {
                     if(contract.address) {
                         console.log('Contract created at: ', contract.address);
 
-                        LocalStore.set('ethereum_testnetWalletContractAddress', contract.address);
+                        LocalStore.set('hotelbyte_testnetWalletContractAddress', contract.address);
                         replaceStubAddress(contract.address);
 
                         EthElements.Modal.question({
@@ -167,7 +164,7 @@ checkForOriginalWallet = function() {
         // see if the original wallet is deployed, if not re-deploy on testnet
         checkCodeOnAddress(mainNetAddress, function() {
             checkCodeOnAddress(testNetAddress, function() {
-                var privateNetAddress = LocalStore.get('ethereum_testnetWalletContractAddress');
+                var privateNetAddress = LocalStore.get('hotelbyte_testnetWalletContractAddress');
 
                 if(privateNetAddress)
                     web3.eth.getCode(privateNetAddress, function(e, code) {

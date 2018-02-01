@@ -23,8 +23,8 @@
             "texts": {
                 "note": "메모",
                 "balance": "잔고",
-                "connectionErrorMist": "연결할 수 없습니다. geth를 다음과 같이 실행하세요:<br><br><small><code>__node__</code><br><br>IPC 경로가 디폴트로 되어있는지 확인하세요. 만일 다른 경로를 사용한다면 다음과 같이 실행하세요: <code>datadir</code>, e.g.<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Ethereum/geth.ipc</code><br>or<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.ethereum/geth.ipc</code>. <br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
-                "connectionErrorBrowser": "연결할 수 없습니다. geth를 다음의 옵션으로 실행하세요.:<br><br><small><code>__node__</code><br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorDHI": "연결할 수 없습니다. ghbc를 다음과 같이 실행하세요:<br><br><small><code>__node__</code><br><br>IPC 경로가 디폴트로 되어있는지 확인하세요. 만일 다른 경로를 사용한다면 다음과 같이 실행하세요: <code>datadir</code>, e.g.<br><code>ghbc --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Hotelbyte/ghbc.ipc</code><br>or<br><code>ghbc --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.hotelbyte/ghbc.ipc</code>. <br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorBrowser": "연결할 수 없습니다. ghbc를 다음의 옵션으로 실행하세요.:<br><br><small><code>__node__</code><br><br>Optional add: <code>--unlock &lt;yourAccount&gt;.</code></small>",
                 "pendingConfirmationsBadge": "승인 대기 중!",
                 "nodeSyncing": "__blockDiff__ 블럭 남음",
                 "blockReceived": "새 블럭을 받았음",
@@ -92,7 +92,7 @@
             "buttons": {
                 "deposit": "이더 입금",
                 "depositBitcoin": "비트코인을 사용한 입금",
-                "viewOnExplorer": "View on Etherscan",
+                "viewOnExplorer": "View on HotelCoinscan",
                 "copyAddress": "주소 복사",
                 "scanQRCode": "QR 코드 보기",
                 "showInterface": "인터페이스 보기"
@@ -255,7 +255,7 @@
             "texts": {
                 "ownerPaysGas": "개스는 지갑 컨트랙트의 소유자에 의해 지불되었습니다.",
                 "sendAmount": "보내고자하는 금액은 <strong>__amount__</strong> 입니다.",
-                "sendAmountEquivalent": "보내고자 하는 금액은 <strong>__amount__</strong> 이더이고, 교환비율은 <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a> 에 근거하였으며, <br>현재 <strong>__etherAmount__ </strong>만큼의 이더입니다.",
+                "sendAmountEquivalent": "보내고자 하는 금액은 <strong>__amount__</strong> 이더이고, 교환비율은 <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a> 에 근거하였으며, <br>현재 <strong>__hotelcoinAmount__ </strong>만큼의 이더입니다.",
                 "sendToken": "<strong> __name__</strong>, <strong>__amount__ __symbol__</strong>을 보내고자 합니다.",
                 "overDailyLimit": "<p class=\"over-daily\">이 금액은 현재 남은 일일 제한 금액인 __limit__ (총 일일 한도 __total__)을 초과합니다, 따라서 __count__ 개의 다른 계정의 승인이 필요합니다.</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">이 금액은 현재 남은 일일 제한 금액인 __limit__ (일일 한도 __total__)을 초과합니다, 따라서 __count__ 개의 다른 계정의 승인이 필요합니다.</p>",
@@ -280,7 +280,7 @@
             "title": "주문형 <strong>토큰</strong>",
             "subTitle": "추가된 토큰",
             "admin": "__name__ (관리자 페이지)",
-            "description": "토큰은 이더리움 플랫폼 위에 만들어진 화폐와 다른 대체수단들을 말합니다. 토큰들을 열람하고 송금하기 위해서는, 토큰들의 주소를 이 목록에 등록해야 합니다. <a href=\"https://ethereum.org/token#the-code\" target=\"_blank\">주문형 토큰 예제</a>를 수정해 주문형 토큰을 만들거나, <a href=\"https://www.ethereum.org/token\" target=\"_blank\">이더리움 토큰들</a>를 통해 더 학습을 할 수도 있습니다.",
+            "description": "토큰은 이더리움 플랫폼 위에 만들어진 화폐와 다른 대체수단들을 말합니다. 토큰들을 열람하고 송금하기 위해서는, 토큰들의 주소를 이 목록에 등록해야 합니다. <a href=\"https://hotelbyte.org/token#the-code\" target=\"_blank\">주문형 토큰 예제</a>를 수정해 주문형 토큰을 만들거나, <a href=\"https://www.hotelbyte.org/token\" target=\"_blank\">이더리움 토큰들</a>를 통해 더 학습을 할 수도 있습니다.",
             "deleteToken": "목록에서 <strong>__token__</strong> 토큰을 삭제하고 싶습니까?",
             "addedToken": "리스트에 __token__ 토큰 추가됨",
             "editedToken": "__token__ 토큰 수정됨",
@@ -308,7 +308,7 @@
             "writeToContract": "컨트랙트에 쓰기",
             "pickContract": "컨트랙트 선택",
             "pickFunction": "함수 선택",
-            "noContract": "<p>여기에 원하는 컨트랙트의 소스를 입력하세요. <a href=\"http://ethereum.org\" target=\"_blank\">ethereum.org</a>에 여러가지 컨트랙트 예제가 있습니다.: </p> <ul><li><a href=\"http://ethereum.org/token#the-code\" target=\"_blank\">토큰 만들기</a></li><li><a href=\"http://ethereum.org/crowdsale#the-code\" target=\"_blank\">크라우드세일 시작하기</a></li><li><a href=\"http://ethereum.org/dao#the-code\" target=\"_blank\">블럭체인 조직 만들기</a></li></ul>",
+            "noContract": "<p>여기에 원하는 컨트랙트의 소스를 입력하세요. <a href=\"http://hotelbyte.org\" target=\"_blank\">hotelbyte.org</a>에 여러가지 컨트랙트 예제가 있습니다.: </p> <ul><li><a href=\"http://hotelbyte.org/token#the-code\" target=\"_blank\">토큰 만들기</a></li><li><a href=\"http://hotelbyte.org/crowdsale#the-code\" target=\"_blank\">크라우드세일 시작하기</a></li><li><a href=\"http://hotelbyte.org/dao#the-code\" target=\"_blank\">블럭체인 조직 만들기</a></li></ul>",
             "buttons": {
                 "showContractInfo": "컨트랙트 정보 보기",
                 "hideContractInfo": "컨트랙트 정보 감추기",

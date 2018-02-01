@@ -14,7 +14,7 @@ The add user template
 
 /**
 The default gas to provide for estimates. This is set manually,
-so that invalid data etsimates this value and we can later set it down and show a warning,
+so that invalid data estimates this value and we can later set it down and show a warning,
 when the user actually wants to send the dummy data.
 
 @property defaultEstimateGas
@@ -31,7 +31,7 @@ var checkOverDailyLimit = function(address, wei, template){
     // check if under or over dailyLimit
     account = Helpers.getAccountByAddress(address);
 
-    if(account && account.requiredSignatures > 1 && !_.isUndefined(account.dailyLimit) && account.dailyLimit !== ethereumConfig.dailyLimitDefault && Number(wei) !== 0) {
+    if(account && account.requiredSignatures > 1 && !_.isUndefined(account.dailyLimit) && account.dailyLimit !== hotelbyteConfig.dailyLimitDefault && Number(wei) !== 0) {
         // check whats left
         var restDailyLimit = new BigNumber(account.dailyLimit || '0', 10).minus(new BigNumber(account.dailyLimitSpent || '0', 10));
 
@@ -51,8 +51,6 @@ Get the data field of either the byte or source code textarea, depending on the 
 var getDataField = function(){
     // make reactive to the show/hide of the textarea
     TemplateVar.getFrom('.compile-contract','byteTextareaShown');
-
-
 
     // send tokens
     var selectedToken = TemplateVar.get('selectedToken');
@@ -143,7 +141,6 @@ Template['views_send'].onCreated(function(){
 });
 
 
-
 Template['views_send'].onRendered(function(){
     var template = this;
 
@@ -160,7 +157,6 @@ Template['views_send'].onRendered(function(){
     if(from)
         TemplateVar.setTo('select[name="dapp-select-account"].send-from', 'value', FlowRouter.getParam('from').toLowerCase());
 
-
     // initialize send view correctly when directly switching from deploy view
     template.autorun(function(c){
         if(FlowRouter.getRouteName() === 'send') {
@@ -168,7 +164,6 @@ Template['views_send'].onRendered(function(){
             TemplateVar.setTo('.dapp-data-textarea', 'value', '');
         }
     });
-
 
     // change the token type when the account is changed
     var selectedAddress;
@@ -179,8 +174,7 @@ Template['views_send'].onRendered(function(){
         if (c.firstRun) {
             selectedAddress = address;
             return;
-        };
-
+        }
 
         if (selectedAddress !== address) {
             TemplateVar.set('selectedToken', 'ether');
@@ -201,7 +195,7 @@ Template['views_send'].onRendered(function(){
             address = address.toLowerCase();
 
 
-        // Ether tx estimation
+        // HotelCoin tx estimation
         if(tokenAddress === 'ether') {
 
             if(EthAccounts.findOne({address: address}, {reactive: false})) {
@@ -225,7 +219,6 @@ Template['views_send'].onRendered(function(){
 
         // Custom coin estimation
         } else {
-
             TokenContract.at(tokenAddress).transfer.estimateGas(to, amount, {
                 from: address,
                 gas: defaultEstimateGas
@@ -510,11 +503,9 @@ Template['views_send'].events({
             gasPrice = TemplateVar.getFrom('.dapp-select-gas-price', 'gasPrice'),
             estimatedGas = TemplateVar.get('estimatedGas'),
             selectedAccount = Helpers.getAccountByAddress(template.find('select[name="dapp-select-account"].send-from').value),
-            selectedAction = TemplateVar.get("selectedAction"),
             data = getDataField(),
             contract = TemplateVar.getFrom('.compile-contract', 'contract'),
             sendAll = TemplateVar.get('sendAll');
-
 
         if(selectedAccount && !TemplateVar.get('sending')) {
 
@@ -677,7 +668,7 @@ Template['views_send'].events({
             };
 
             // SHOW CONFIRMATION WINDOW when NOT MIST
-            if(typeof mist === 'undefined') {
+            if(typeof dhi === 'undefined') {
 
                 console.log('estimatedGas: ' + estimatedGas);
 

@@ -57,8 +57,8 @@ observePendingConfirmations = function(){
         added: function(document) {
             checkConfirmation(document._id);
 
-            if(typeof mist !== 'undefined' && document.confirmedOwners && document.confirmedOwners.length) {
-                mist.menu.setBadge(TAPi18n.__('wallet.app.texts.pendingConfirmationsBadge'));
+            if(typeof dhi !== 'undefined' && document.confirmedOwners && document.confirmedOwners.length) {
+                dhi.menu.setBadge(TAPi18n.__('wallet.app.texts.pendingConfirmationsBadge'));
             }
         },
         /**
@@ -67,7 +67,7 @@ observePendingConfirmations = function(){
         @method removed
         */
         removed: function(document) {
-            updateMistBadge();
+            updateDHIBadge();
         },
         /**
         Add pending confirmations to the accounts
@@ -75,8 +75,8 @@ observePendingConfirmations = function(){
         @method changed
         */
         changed: function(id, fields) {
-            if(typeof mist !== 'undefined' && document.confirmedOwners && document.confirmedOwners.length) {
-                mist.menu.setBadge(TAPi18n.__('wallet.app.texts.pendingConfirmationsBadge'));
+            if(typeof dhi !== 'undefined' && document.confirmedOwners && document.confirmedOwners.length) {
+                dhi.menu.setBadge(TAPi18n.__('wallet.app.texts.pendingConfirmationsBadge'));
             }
         }
     });

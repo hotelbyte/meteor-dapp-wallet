@@ -52,7 +52,7 @@ updateBalances = function() {
 
 
     // WALLETS STUCK IN CREATE STATE
-    // issue found when using the light client mode on Mist 0.9.1 and 0.9.2
+    // issue found when using the light client mode on DHI 0.9.1 and 0.9.2
     var creatingWallets = Wallets.find({
       transactionHash: {$exists: true},
       address: {$exists: false}

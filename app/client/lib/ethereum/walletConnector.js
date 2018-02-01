@@ -23,27 +23,27 @@ collectionObservers = [];
 
 
 /**
-Config for the ethereum connector
+Config for the hotelbyte connector
 
 @property config
 */
-ethereumConfig = {
+hotelbyteConfig = {
     /**
     Number of blocks to rollback, from the last checkpoint block of the wallet.
 
-    @property ethereumConfig.rollBackBy
+    @property hotelbyteConfig.rollBackBy
     */
     rollBackBy: 0,
     /**
     Number of blocks to confirm a wallet
 
-    @property ethereumConfig.requiredConfirmations
+    @property hotelbyteConfig.requiredConfirmations
     */
     requiredConfirmations: 12,
     /**
     The default daily limit used for simple accounts
 
-    @property ethereumConfig.dailyLimitDefault
+    @property hotelbyteConfig.dailyLimitDefault
     */
     dailyLimitDefault: '100000000000000000000000000'
 };
@@ -62,27 +62,13 @@ connectToNode = function(){
     EthAccounts.init();
     EthBlocks.init();
     EthTools.ticker.start({
-      extraParams: (typeof mist !== 'undefined') ? 'Mist-'+ mist.version : '',
+      extraParams: (typeof dhi !== 'undefined') ? 'DHI-'+ dhi.version : '',
       currencies: ['BTC', 'USD', 'EUR', 'BRL', 'GBP']
     });
 
     if (EthAccounts.find().count() > 0) {
         checkForOriginalWallet();
     }
-
-    // EthBlocks.detectFork(function(oldBlock, block){
-    //     console.log('FORK detected from Block #'+ oldBlock.number + ' -> #'+ block.number +', rolling back!');
-
-    //     // Go through all accounts and re-run
-    //     _.each(Wallets.find({}).fetch(), function(wallet){
-    //         // REMOVE ADDRESS for YOUNG ACCOUNTS, so that it tries to get the Created event and correct address again
-    //         if(wallet.creationBlock + ethereumConfig.requiredConfirmations >= block.number)
-    //             delete wallet.address;
-
-    //         setupContractFilters(wallet);
-    //     });
-    // });
-
 
     observeLatestBlocks();
 
