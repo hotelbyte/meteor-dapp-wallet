@@ -13,21 +13,25 @@
 
 // Change Default constants
 
-@colorLink: #02A8F3;
+@colorLink: #2edde9;
 
 @heightHeader: @gridWidth * 2.5;
 
 
 // Platform specifics
 // Mac OSX
-@colorOSBackgroundFocus: #d9d0d0;
-@colorOSBackgroundBlur: lighten(@colorOSBackgroundFocus, 10%);
+@colorOSBackgroundFocus: #292e31;
+@colorOSBackgroundBlur: #292e31;
 
-@colorWinBackgroundFocus: #F0F0F0;
-@colorWinBackgroundBlur: #F0F0F0;
+@colorWinBackgroundFocus: #292e31;
+@colorWinBackgroundBlur: #292e31;
 
-@colorLinuxBackgroundFocus: #403F3A;
-@colorLinuxBackgroundBlur: #3C3B36;
+@colorLinuxBackgroundFocus: #292e31;
+@colorLinuxBackgroundBlur: #292e31;
+
+
+@colorTextSecondary: #292e31;
+@colorWhite: #292e31;
 
 
 .global-notifications {
@@ -54,7 +58,7 @@
     max-width: none;
 
     .dapp-container {
-        max-width: none; 
+        max-width: none;
 
         > h2 {
             margin-bottom: @gridHeight * 1;
@@ -62,8 +66,8 @@
 
         > h2 + p {
             margin-bottom: @gridHeight * 2;
-        } 
-    }   
+        }
+    }
 }
 
 
@@ -86,10 +90,7 @@ body {
         background-color: @colorWinBackgroundFocus;
         background-image: none;
 
-        &.dapp-small {
-            .box-shadow(none);
-            .dapp-shadow-small;
-        }
+
     }
 }
 // LINUX
@@ -107,14 +108,17 @@ body {
     }
     .dapp-header {
         background-color: @colorLinuxBackgroundFocus;
-        .background-image(linear-gradient(to bottom,  @colorLinuxBackgroundFocus 20%, lighten(@colorLinuxBackgroundFocus, 5%) 90%));
-        color: @colorWhite;
 
         nav a,
         .block-info,
         .wallet-balance h3,
         .wallet-balance span.account-balance {
-            color: @colorWhite;
+            color: #BEEE62;
+        }
+        ul{
+            li a.active{
+                border-bottom: @colorLink;
+            }
         }
     }
 }
@@ -124,8 +128,6 @@ body {
         background: @colorOSBackgroundBlur;
 
         &.app-blur {
-            background: lighten(@colorOSBackgroundBlur, 10%);
-
             .dapp-header {
                 background: @colorOSBackgroundBlur;
             }
@@ -133,7 +135,6 @@ body {
     }
     .dapp-header {
         background-color: @colorOSBackgroundFocus;
-        .background-image(linear-gradient(to top,  @colorOSBackgroundFocus 20%, lighten(@colorOSBackgroundFocus, 10%) 90%));
 
         nav > ul {
             margin-left: @gridWidth;
@@ -157,7 +158,7 @@ body {
     padding-left: @gridWidth * 2.5;
     background-color: @colorWinBackgroundFocus;
     -webkit-app-region: drag; // necessary to drag the wallet window
-    .background-image(linear-gradient(to bottom,  @colorWinBackgroundFocus 50%, #ddd9d9 90%));
+    .background-image(linear-gradient(to bottom,  @colorWinBackgroundFocus 50%, #292e31 90%));
 
     &.dapp-small {
         z-index: 30;
@@ -166,13 +167,13 @@ body {
         left: 0;
         right: 0;
         .dapp-shadow-medium;
-  
+
         .block-info {
             padding-bottom: @defaultPaddingVertical - 2;
         }
-        
+
         .wallet-balance ,
-        .block-info {            
+        .block-info {
             .text,
             h3 {
                 display: none;
@@ -195,12 +196,12 @@ body {
     }
 
     nav ul a.active {
-        color: @colorTextSecondary;
+        color: @colorWhite !important;
     }
 
     .block-info {
-        padding-bottom: @defaultPaddingVertical;        
-        color: lighten(@colorGrayDark, 5%);
+        padding-bottom: @defaultPaddingVertical;
+        color: #f0f0f0;
         text-align: center;
         flex: 1 0;
 
@@ -219,14 +220,14 @@ body {
 
         .private-chain {
             color: @colorWhite;
-            background-color: @colorError;
+            background-color: @colorOrange;
             padding: 1px 5px 2px;
             border-radius: 2px;
             top: 1px;
         }
-        
+
     }
-    
+
     .wallet-balance {
         padding-bottom: @defaultPaddingVertical - 5px;
         padding-left: @defaultPaddingHorizontal;
@@ -238,7 +239,7 @@ body {
         }
 
         span.account-balance {
-            color: @colorTextSecondary;
+            color: #f0f0f0;
             font-size: 1.6em;
 
             .inline-form {
@@ -253,6 +254,12 @@ body {
     }
 }
 
+
+.dapp-flex-content{
+    background: #FCFEFF;
+    color: @colorWhite;
+}
+
 .dapp-header.dapp-small + .dapp-flex-content > .dapp-content {
     padding-top: @gridHeight * 6 - 3px;
 }
@@ -262,7 +269,7 @@ body {
     span {
         font-size: 0.6em;
     }
-    
+
     .inline-form {
         button {
             border: 0;
@@ -284,7 +291,7 @@ body {
         right: 0;
         height: @gridHeight * 2;
         padding: @gridHeight/2 @gridWidth * 2.5;
-        background: @colorWhite;
+        background: #0bc726;
         opacity: 0;
         z-index: -1;
 
@@ -310,7 +317,7 @@ body {
             text-transform: uppercase;
             padding-left: @gridWidth;
         }
-        
+
         .account-balance {
             position: absolute;
             right: @gridWidth * 2;
@@ -337,14 +344,14 @@ body {
         h2 {
             //white-space: nowrap;
             span {
-               padding-left: @gridWidth/6;
+                padding-left: @gridWidth/6;
             }
             input {
                 border: none;
                 margin: 0;
                 background: none;
                 width: 440px;
-                color: inherit;
+                color: @colorBlack !important;
                 padding-left: @gridWidth/6;
             }
         }
@@ -361,16 +368,16 @@ body {
                 margin-top: 0;
                 position: absolute;
             }
-            
+
             tr {
                 &:hover td:last-child a {
                     visibility: visible;
                 }
-                
+
                 td:last-child {
                     text-align: right;
 
-                    
+
                     a {
                         visibility: hidden;
                     }
@@ -379,7 +386,7 @@ body {
                     padding-left: @gridWidth;
                 }
             }
-            
+
         }
     }
 
@@ -406,7 +413,7 @@ body {
     .execute-contract {
         flex: 1 100%;
     }
-    
+
     > .dapp-identicon {
         float: left;
         margin-right: 20px;
@@ -453,7 +460,7 @@ body {
             }
 
             &[contenteditable="true"] {
-                border-bottom: 2px dotted @colorTextTertiary;
+                border-bottom: 2px dotted #abe934  !important;
             }
         }
 
@@ -463,7 +470,7 @@ body {
             background-color: transparent;
             color: @colorTextTertiary;
             text-transform: none;
-            // font-size: 0.9em; 
+            // font-size: 0.9em;
         }
     }
 
@@ -473,17 +480,19 @@ body {
     }
 
     input[type='checkbox'] {
-        float: left; 
+        float: left;
         margin-right: @defaultMargin/2;
     }
+
 }
+
 
 .dapp-full-header + .dapp-flex-content .accounts-page .dapp-sticky-bar.sticky {
     top: floor(@gridHeight * 5.5);
 }
 
-.dapp-actionbar nav ul li button, 
-.dapp-actionbar nav ul li a, 
+.dapp-actionbar nav ul li button,
+.dapp-actionbar nav ul li a,
 .dapp-actionbar nav ul li a:visited {
     color: @colorLink;
 }
@@ -513,18 +522,19 @@ body {
             }
 
             select {
-                color: @colorLink;
-                width: 100%;
+                color: @colorBlack;
+                width: 100% !important;
             }
 
             .dapp-address-input input {
                 width: 100%;
+                color: @colorBlack !important;
             }
-            
+
         }
 
         &.compile-contract {
-            
+
             // switch editor sourcecode/bytecode
             .dapp-data-textarea {
                 display: block;
@@ -567,10 +577,12 @@ body {
             input:not([type='checkbox']),
             select {
                 width: 100%;
+                color: @colorBlack !important;
             }
             input[type='checkbox'] {
-                float: left; 
+                float: left;
                 margin-right: @defaultMargin/2;
+                color: @colorBlack !important;
             }
 
             #contract-source-editor {
@@ -592,12 +604,13 @@ body {
             span {
                 font-size: 1.3em;
                 font-weight: 400;
-                color: @colorTextSecondary;
+                color: @colorWhite;
             }
 
             input[type="text"] {
                 width: 100%;
                 margin-bottom: @defaultMargin/2;
+                color: @colorBlack !important;
             }
 
             input.send-all  {
@@ -608,7 +621,7 @@ body {
         }
 
         .token-ether {
-            color: @colorGrayDark;
+            color: @colorWhite;
             font-size: 16px;
             font-weight: normal;
             height: @gridHeight;
@@ -617,7 +630,7 @@ body {
 
             .ether-symbol {
                 display: inline-block;
-                border: solid 1px @colorGrayDark;
+                border: solid 1px @colorWhite;
                 border-radius: 50%;
                 width: @gridWidth*0.75;
                 height: @gridWidth*0.75;
@@ -644,7 +657,7 @@ body {
                 font-size: 2em;
             }
         }
-         
+
     }
 
     textarea {
@@ -693,6 +706,7 @@ body {
     input.gas {
         width: 120px;
         font-size: 0.8em;
+        color: @colorBlack !important;
     }
 }
 
@@ -726,7 +740,7 @@ body {
         span {
             color: @colorTextSecondary;
         }
-        
+
     }
 
     .indented-box {
@@ -767,9 +781,9 @@ body {
     }
 
     .contract-info {
-        
+
         h3 {
-            color: @colorGrayDark;
+            color: @colorWhite;
             text-transform: lowercase;
             font-weight: 300;
             font-size: 1.2em;
@@ -780,6 +794,7 @@ body {
         input,
         .dapp-address-input {
             width: 100%;
+            color: @colorBlack !important;
         }
 
         .output > .dapp-identicon {
@@ -798,7 +813,7 @@ body {
                 display: inline-block;
                 color: @colorGray;
                 padding-left: @gridWidth / 2;
-                
+
                 .icon {
                     position: absolute;
                     left:  @gridWidth;
@@ -807,17 +822,17 @@ body {
                 }
             }
         }
-        
+
         table {
             table-layout: fixed;
-            
+
             tr:nth-child(odd) {
                 border-radius: 4px 4px 0 0;
-            }        
+            }
 
             tr:nth-child(even) {
                 background-color: #FFF;
-                border-bottom: solid 10px @colorWhite;
+                border-bottom: solid 10px #0bc726 !important;
             }
 
             td {
@@ -825,7 +840,7 @@ body {
                 vertical-align: top;
                 word-wrap: break-word;
 
-                h3 {    
+                h3 {
                     margin: 0;
                 }
 
@@ -836,7 +851,7 @@ body {
                         margin-bottom: @gridHeight;
                         word-wrap: break-word;
                     }
-                }    
+                }
             }
         }
         .dapp-punctuation {
@@ -869,9 +884,15 @@ body {
         visibility: hidden;
         padding: 0;
     }
-  
+
     .wallet-balance {
         font-size: 75%;
     }
 }
 
+input{
+    color: @colorBlack !important;
+}
+.dapp-select-account select{
+    color: @colorBlack !important;
+}

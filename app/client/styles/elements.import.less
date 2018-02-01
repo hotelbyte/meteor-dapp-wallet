@@ -8,11 +8,24 @@
 }
 
 .red {
-    color: @colorError;
+    color: @colorOrange !important;
 }
 
 .blue {
     color: @colorBlue;
+}
+
+.dapp-modal-container{
+    background: #FCFEFF !important;
+}
+
+h2{
+    background: none !important;
+}
+
+.dapp-header nav > ul > li a.active {
+    color: #f0f0f0 !important;
+    border-bottom: 5px solid #2edde9;
 }
 
 span.address {
@@ -24,7 +37,7 @@ span.address {
     &.ens-name {
         font-weight: 400;
     }
-    
+
     &.not-ens-name {
         font-style: italic;
     }
@@ -64,7 +77,8 @@ span.address {
     padding-right: @defaultPaddingHorizontal/2;
     margin-right: @defaultMargin;
     margin-bottom: @defaultMargin;
-    .box-sizing(border-box);
+    background-color:#3c3b36
+    box-sizing(border-box);
     border: 0;
 
     // ANIMATION
@@ -92,10 +106,11 @@ span.address {
         h3 {
             margin-top: 0;
             text-align: left;
+            color: #292e31 !important;
         }
     }
 
-    &.creating { 
+    &.creating {
         pointer-events: none;
         cursor: default;
     }
@@ -111,14 +126,13 @@ span.address {
     }
 
     &.wallets {
-        .background-image(linear-gradient(to right,  lighten(@colorBackgroundHeader, 12%) 0%, rgba(255,255,255, 0.1) 100%));
         overflow: hidden;
     }
     &.tokens {
         perspective: 800px;
         position: relative;
         background-repeat: repeat-y;
-        background-color: @colorGray;
+        background-color: @colorWhite;
         background-size: cover;
         // background-size: @gridWidth * 3;
         background-position-x: 4px;
@@ -127,9 +141,9 @@ span.address {
         transform-style: preserve-3d;
 
         .dapp-identicon {
-            border: @colorWhite solid 2px; 
+            border: @colorWhite solid 2px;
             .transition(transform 0.3s);
-            backface-visibility: hidden;       
+            backface-visibility: hidden;
         }
 
         .delete-token {
@@ -232,7 +246,6 @@ span.address {
     > h3 {
         margin: 0;
         margin-top: 4px;
-        color: @colorLink;
         max-width: @gridWidth*4.4;
         float: left;
 
@@ -260,7 +273,7 @@ span.address {
         &.account-id {
             font-size: 0.8em;
             line-height: 1.4em;
-            color: fadeout(@colorTextSecondary, 40%);
+            color: fadeout(@colorWhite, 40%);
 
             &.creating {
                 color: @colorWhite;
@@ -275,7 +288,7 @@ span.address {
     background: @colorGrayLight;
     margin-top: @gridHeight*0.75;
 
-    
+
     &:hover {
         .dapp-shadow-medium;
     }
@@ -289,7 +302,7 @@ span.address {
         border-color: @colorGray;
         color: @colorGrayDark;
         padding: @defaultPaddingVertical/2 @defaultPaddingHorizontal/2;
-        opacity: 1;        
+        opacity: 1;
         background: @colorGray;
         font-weight: 400;
 
@@ -308,7 +321,7 @@ span.address {
         display: flex;
         overflow: hidden;
         height: @gridHeight * 2;
-        padding: @defaultPaddingVertical/2 @defaultPaddingHorizontal/2;  
+        padding: @defaultPaddingVertical/2 @defaultPaddingHorizontal/2;
         .transition(height @animationSpeed/2, opacity @animationSpeed/2, padding @animationSpeed/2);
         cursor: pointer;
 
@@ -330,7 +343,7 @@ span.address {
 
         span.balance {
             text-align: right;
-            color: @colorTextSecondary;
+            color: @colorWhite;
         }
 
         span.ether-symbol {
@@ -417,7 +430,7 @@ table {
         td {
 
             &.plus, .plus {
-                color: @colorTextSecondary;                
+                color: @colorTextSecondary;
             }
             &.minus, .minus {
                 color: @colorError;
@@ -495,7 +508,7 @@ table {
 
                 button {
                     width: 120px;
-                    margin-right: @defaultMargin;  
+                    margin-right: @defaultMargin;
                     text-align: center;
                     .transition(background-color @animationSpeed/2);
 
@@ -503,8 +516,8 @@ table {
                         display: none;
                     }
                     &:hover {
-                        .label { 
-                            display: none;                      
+                        .label {
+                            display: none;
                         }
                         .hover-label {
                             display: block;
@@ -551,13 +564,13 @@ table {
 
         a {
             color: @colorWhite;
-        } 
+        }
 
         &:hover {
             background: lighten(@colorError, 10%);
-        }       
+        }
     }
-  
+
     a.learn-more-link {
         display: block;
         padding-top: @gridHeight;
@@ -569,7 +582,7 @@ table {
             cursor: pointer;
             text-decoration: underline;
         }
-    }  
+    }
 }
 
 .sticky + div .account-page-notification {
@@ -578,10 +591,10 @@ table {
 
 // Ace Editor Error Highlight
 .errorMarker {
-  position:absolute;
-  background: #FF0000;
-  z-index:20;
-  opacity: 0.2;
+    position:absolute;
+    background: #FF0000;
+    z-index:20;
+    opacity: 0.2;
 }
 
 
@@ -600,5 +613,14 @@ table {
     .dapp-address-input {
         display: inline-block;
         width: @gridWidth * 13;
+    }
+}
+
+.dapp-container{
+    p{
+        a{
+            color: black;
+            font-weight: bolder;
+        }
     }
 }

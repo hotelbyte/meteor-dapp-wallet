@@ -11,7 +11,7 @@ Watches custom events
 */
 var addLogWatching = function(newDocument){
     var contractInstance = web3.eth.contract(newDocument.jsonInterface).at(newDocument.address);
-    var blockToCheckBack = (newDocument.checkpointBlock || 0) - ethereumConfig.rollBackBy;
+    var blockToCheckBack = (newDocument.checkpointBlock || 0) - hotelbyteConfig.rollBackBy;
     
     if(blockToCheckBack < 0)
         blockToCheckBack = 0;
@@ -32,7 +32,7 @@ var addLogWatching = function(newDocument){
         if(!error) {
             // update last checkpoint block
             CustomContracts.update({_id: newDocument._id}, {$set: {
-                checkpointBlock: (currentBlock || EthBlocks.latest.number) - ethereumConfig.rollBackBy
+                checkpointBlock: (currentBlock || EthBlocks.latest.number) - hotelbyteConfig.rollBackBy
             }});
         }
     });
@@ -123,7 +123,7 @@ Template['views_account'].helpers({
     @method (showDailyLimit)
     */
     'showDailyLimit': function(){
-        return (this.dailyLimit && this.dailyLimit !== ethereumConfig.dailyLimitDefault);
+        return (this.dailyLimit && this.dailyLimit !== hotelbyteConfig.dailyLimitDefault);
     },
     /**
     Show requiredSignatures section
@@ -336,7 +336,7 @@ Template['views_account'].events({
             address: this.address,
             code: "eb44c52c-9c3f-5fb6-8b11-fc3ec3022519",
             currency: "USD",
-            crypto_currency: "ETH",
+            crypto_currency: "HBC",
         })).show();
     },
 

@@ -15,9 +15,9 @@ var setupContractFilters = function(newDocument){
     if(!contractInstance)
         return;
 
-    var blockToCheckBack = (newDocument.checkpointBlock || 0) - ethereumConfig.rollBackBy;
+    var blockToCheckBack = (newDocument.checkpointBlock || 0) - hotelbyteConfig.rollBackBy;
 
-    // TODO change to 0, when new geth is out!!!!!
+    // TODO change to 0, why?
     if(blockToCheckBack < 400000)
         blockToCheckBack = 400000;
 
@@ -45,7 +45,7 @@ var setupContractFilters = function(newDocument){
         if(!error) {
             // update last checkpoint block
             Tokens.update({_id: newDocument._id}, {$set: {
-                checkpointBlock: (currentBlock || EthBlocks.latest.number) - ethereumConfig.rollBackBy
+                checkpointBlock: (currentBlock || EthBlocks.latest.number) - hotelbyteConfig.rollBackBy
             }});
         }
     });

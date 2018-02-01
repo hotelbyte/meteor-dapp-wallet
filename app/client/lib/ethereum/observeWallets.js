@@ -238,7 +238,7 @@ Creates filters for a wallet contract, to watch for deposits, pending confirmati
 @param {Boolean} checkFromCreationBlock
 */
 var setupContractFilters = function(newDocument, checkFromCreationBlock){
-    var blockToCheckBack = (newDocument.checkpointBlock || 0) - ethereumConfig.rollBackBy;
+    var blockToCheckBack = (newDocument.checkpointBlock || 0) - hotelbyteConfig.rollBackBy;
     
     if(checkFromCreationBlock || blockToCheckBack < 0)
         blockToCheckBack = newDocument.creationBlock;
@@ -357,7 +357,7 @@ var setupContractFilters = function(newDocument, checkFromCreationBlock){
             if(!error) {
                 // update last checkpoint block
                 Wallets.update({_id: newDocument._id}, {$set: {
-                    checkpointBlock: (currentBlock || EthBlocks.latest.number) - ethereumConfig.rollBackBy
+                    checkpointBlock: (currentBlock || EthBlocks.latest.number) - hotelbyteConfig.rollBackBy
                 }});
             }
         });
@@ -542,13 +542,13 @@ observeWallets = function(){
     var checkWalletConfirmations = function(newDocument, oldDocument){
         var confirmations = EthBlocks.latest.number - newDocument.creationBlock;
 
-        if(newDocument.address && (!oldDocument || (oldDocument && !oldDocument.address)) && confirmations < ethereumConfig.requiredConfirmations) {
+        if(newDocument.address && (!oldDocument || (oldDocument && !oldDocument.address)) && confirmations < hotelbyteConfig.requiredConfirmations) {
             var filter = web3.eth.filter('latest');
             filter.watch(function(e, blockHash){
                 if(!e) {
                     var confirmations = EthBlocks.latest.number - newDocument.creationBlock;
 
-                    if(confirmations < ethereumConfig.requiredConfirmations && confirmations > 0) {
+                    if(confirmations < hotelbyteConfig.requiredConfirmations && confirmations > 0) {
                         Helpers.eventLogs('Checking wallet address '+ newDocument.address +' for code. Current confirmations: '+ confirmations);
 
                         // TODO make smarter?
@@ -566,7 +566,7 @@ observeWallets = function(){
                                 }
                             }
                         });
-                    } else if(confirmations > ethereumConfig.requiredConfirmations) {
+                    } else if(confirmations > hotelbyteConfig.requiredConfirmations) {
                         filter.stopWatching();
                     }
                 }
@@ -634,7 +634,7 @@ observeWallets = function(){
 
                         console.log('Deploying Wallet with following options', newDocument);
 
-                        WalletContract.new(newDocument.owners, newDocument.requiredSignatures, (newDocument.dailyLimit || ethereumConfig.dailyLimitDefault), {
+                        WalletContract.new(newDocument.owners, newDocument.requiredSignatures, (newDocument.dailyLimit || hotelbyteConfig.dailyLimitDefault), {
                             from: newDocument.deployFrom,
                             data: newDocument.code,
                             gas: 3000000,

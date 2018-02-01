@@ -55,7 +55,7 @@ var addCustomContract = function(e) {
             jsonInterface: jsonInterface
         }});
 
-        // update balances from lib/ethereum/observeBlocks.js
+        // update balances from lib/hotelbyte/observeBlocks.js
         updateBalances();
 
         GlobalNotification.success({
@@ -101,7 +101,7 @@ var addToken = function(e) {
             decimals: Number(decimals || 0)
         }});
 
-        // update balances from lib/ethereum/observeBlocks.js
+        // update balances from lib/hotelbyte/observeBlocks.js
         updateBalances();
 
         GlobalNotification.success({

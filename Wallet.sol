@@ -1,7 +1,7 @@
 //sol Wallet
 // Multi-sig, daily-limited account proxy/wallet.
 // @authors:
-// Gav Wood <g@ethdev.com>
+// Gav Wood <g@ethdev.com>, thank you Gav!
 // inheritable "property" contract that enables methods to be protected by requiring the acquiescence of either a
 // single, or, crucially, each of a number of, designated owners.
 // usage:

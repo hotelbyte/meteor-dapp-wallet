@@ -275,7 +275,7 @@ Template['elements_executeContract_function'].events({
     'click .execute': function(e, template){
         var to = template.data.contractInstance.address,
             gasPrice = 50000000000,
-            estimatedGas = undefined, /* (typeof mist == 'undefined')not working */
+            estimatedGas = undefined, /* (typeof dhi == 'undefined')not working */
             amount = TemplateVar.get('amount') || 0,
             selectedAccount = Helpers.getAccountByAddress(TemplateVar.getFrom('.execute-contract select[name="dapp-select-account"]', 'value')),
             data = TemplateVar.get('executeData');

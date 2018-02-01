@@ -1,0 +1,31 @@
+{
+  "name": "hotelbyte-wallet",
+  "version": "1.0.0",
+  "description": "Official HotelByte wallet",
+  "main": "client/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hotelbyte/meteor-dapp-wallet.git"
+  },
+  "keywords": [
+    "dapp",
+    "wallet",
+    "hotelbyte"
+  ],
+  "author": "Hotelbyte Foundation",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hotelbyte/meteor-dapp-wallet/issues"
+  },
+  "homepage": "https://github.com/hotelbyte/meteor-dapp-wallet#readme"
+}

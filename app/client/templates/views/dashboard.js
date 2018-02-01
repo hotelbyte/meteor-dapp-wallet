@@ -32,7 +32,7 @@ Template['views_dashboard'].helpers({
     @method (accounts)
     */
     'accounts': function(){
-        // balance need to be present, to show only full inserted accounts (not ones added by mist.requestAccount)
+        // balance need to be present, to show only full inserted accounts (not ones added by dhi.requestAccount)
         var accounts = EthAccounts.find({name: {$exists: true}}, {sort: {name: 1}}).fetch();
 
         accounts.sort(Helpers.sortByBalance);
@@ -83,14 +83,14 @@ Template['views_dashboard'].helpers({
 
 Template['views_dashboard'].events({
     /**
-    Request to create an account in mist
+    Request to create an account in dhi
     
     @event click .create.account
     */
     'click .create.account': function(e){
         e.preventDefault();
 
-        mist.requestAccount(function(e, accounts) {
+        dhi.requestAccount(function(e, accounts) {
             if(!e) {
                 if(!_.isArray(accounts)) {
                     accounts = [accounts];

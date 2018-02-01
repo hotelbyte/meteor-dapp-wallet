@@ -23,7 +23,7 @@
             "texts": {
                 "note": "Note",
                 "balance": "Solde",
-                "connectionErrorMist": "Impossible de se connecter. Veuillez lancer gexp en utilisant : <br><br><small><code>__node__</code><br><br>Assurez-vous d'avoir bien renseigné le chemin IPC par défaut lorsque vous utilisez un <code>datadir</code> différent, ex : <br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Ethereum/geth.ipc</code><br>ou<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.Ethereum/geth.ipc</code>. <br><br>Ajout facultatif : <code>--unlock &lt;votreCompte&gt;.</code></small>",
+                "connectionErrorDHI": "Impossible de se connecter. Veuillez lancer gexp en utilisant : <br><br><small><code>__node__</code><br><br>Assurez-vous d'avoir bien renseigné le chemin IPC par défaut lorsque vous utilisez un <code>datadir</code> différent, ex : <br><code>ghbc --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Hotelbyte/ghbc.ipc</code><br>ou<br><code>ghbc --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.Hotelbyte/ghbc.ipc</code>. <br><br>Ajout facultatif : <code>--unlock &lt;votreCompte&gt;.</code></small>",
                 "connectionErrorBrowser": "Impossible de se connecter. Veuillez lancer gexp en utilisant les options suivantes : <br><br><small><code>__node__</code><br><br>Ajout facultatif : <code>--unlock &lt;votreCompte&gt;.</code></small>",
                 "pendingConfirmationsBadge": "Confirmation en cours !",
                 "nodeSyncing": "__blockDiff__ blocs restants",
@@ -37,7 +37,7 @@
                 }
             },
             "error": {
-                "wrongChain": "Vous semblez être sur une chaine différente, veuillez redémarrer Ethereum Wallet App !"
+                "wrongChain": "Vous semblez être sur une chaine différente, veuillez redémarrer Hotelbyte Wallet App !"
             },
             "warnings": {
                 "txOriginVulnerabilityWallet": "Ce portefeuille de contrat à puce a le code obsolète et est soumis à des attaques de phishing. ",
@@ -86,11 +86,11 @@
             "owners": "Propriétaires",
             "walletsDescription": "Les portefeuilles sont des contrats qui sont stockés sur la blockchain et peuvent détenir et sécuriser de l'ether. Plusieurs comptes peuvent en être propriétaires et ils conservent un registre complet de toutes les transactions.",
             "walletsDescriptionNotEnoughFunds": "Dès que vous avez plus de 1 ether, vous pouvez créer des contrats plus sophistiqués. Les portefeuilles sont des types de contrats intelligents qui permettent à vos fonds d'être contrôlés par plusieurs comptes et qui ont une option de limite de retrait quotidien permettant d'accroître la sécurité. Pour créer vos propres contrats personnalisés, allez sur l'onglet <em>Contrats </em>.",
-            "accountsDescription": "Les comptes sont des clés protégées par mot de passe qui peuvent détenir de l'ether, sécuriser des jetons basés sur Ethereum, et contrôler des contrats. Les comptes ne peuvent pas afficher les transactions entrantes.",
+            "accountsDescription": "Les comptes sont des clés protégées par mot de passe qui peuvent détenir de l'ether, sécuriser des jetons basés sur Hotelbyte, et contrôler des contrats. Les comptes ne peuvent pas afficher les transactions entrantes.",
             "buttons": {
                 "deposit": "Déposer de l'ether",
                 "depositBitcoin": "Déposer via du Bitcoin",
-                "viewOnExplorer": "View on Etherscan",
+                "viewOnExplorer": "View on HotelCoinscan",
                 "copyAddress": "Copier l'adresse",
                 "scanQRCode": "Afficher le QR Code",
                 "showInterface": "Afficher l'interface"
@@ -250,7 +250,7 @@
             "texts": {
                 "ownerPaysGas": "Le gaz est payé par le propriétaire du portefeuille",
                 "sendAmount": "Vous voulez envoyer <strong>__amount__</strong>.",
-                "sendAmountEquivalent": "Vous voulez envoyer <strong>__amount__</strong> en ether, en utilisant le taux de change depuis <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Pour une valeur actuelle de <strong>__etherAmount__</strong>.",
+                "sendAmountEquivalent": "Vous voulez envoyer <strong>__amount__</strong> en ether, en utilisant le taux de change depuis <a href=\"https://www.cryptocompare.com/coins/eth/overview/BTC\" target=\"_blank\">cryptocompare.com</a>.<br>Pour une valeur actuelle de <strong>__hotelcoinAmount__</strong>.",
                 "sendToken": "Vous voulez envoyer <strong>__amount__ __symbol__</strong> de <strong> __name__</strong>.",
                 "overDailyLimit": "<p class=\"over-daily\">Ce montant est supérieur à la limite quotidienne restante __limit__ (de __total__ par jour), vous avez donc besoin de la confirmation de __count__ autres comptes.</p>",
                 "overDailyLimit_plural": "<p class=\"over-daily\">Ce montant est supérieur à la limite quotidienne restante de __limit__ (de __total__ par jour), vous avez donc besoin de la confirmation de __count__ autres comptes.</p>",
@@ -275,7 +275,7 @@
             "title": "<strong>Jetons</strong> que vous suivez",
             "subTitle": "Jetons ajoutés",
             "admin": "__name__ (page d'administration)",
-            "description": "Les jetons sont des devises et autres fongibles construits sur la plateforme Ethereum. Pour que les comptes puissent voir et envoyer des jetons, vous devez ajouter l'adresse de leur contrat à cette liste. Vous pouvez créer votre propre jeton simplement en modifiant <a href=\"https://ethereum.org/token#the-code\" target=\"_blank\">cet exemple d'un contrat de jeton</a> ou en en apprenant plus sur <a href=\"https://www.Ethereum.org/token\" target=\"_blank\">les jetons dans Ethereum</a>.",
+            "description": "Les jetons sont des devises et autres fongibles construits sur la plateforme Hotelbyte. Pour que les comptes puissent voir et envoyer des jetons, vous devez ajouter l'adresse de leur contrat à cette liste. Vous pouvez créer votre propre jeton simplement en modifiant <a href=\"https://hotelbyte.org/token#the-code\" target=\"_blank\">cet exemple d'un contrat de jeton</a> ou en en apprenant plus sur <a href=\"https://www.Hotelbyte.org/token\" target=\"_blank\">les jetons dans Hotelbyte</a>.",
             "deleteToken": "Voulez-vous supprimer le jeton <strong>__token__</strong> de votre liste ?",
             "addedToken": "__token__ ajouté à votre liste",
             "editedToken": "Jeton __token__ modifié",
@@ -303,7 +303,7 @@
             "writeToContract": "Ecrire au contrat",
             "pickContract": "Choisir un contrat",
             "pickFunction": "Choisir une fonction",
-            "noContract": "<p>Placez la source du contrat désiré ici. Vous trouverez de nombreux exemples de contrats sur <a href=\"http://Ethereum.org\" target=\"_blank\">Ethereum.org</a> : </p> <ul><li><a href=\"http://Ethereum.org/token#the-code\" target=\"_blank\">Créer un jeton</a></li><li><a href=\"http://Ethereum.org/crowdsale#the-code\" target=\"_blank\">Démarrer une crowdsale</a></li><li><a href=\"http://Ethereum.org/dao#the-code\" target=\"_blank\">Créer une organisation sur la blockchain</a></li></ul>",
+            "noContract": "<p>Placez la source du contrat désiré ici. Vous trouverez de nombreux exemples de contrats sur <a href=\"http://Hotelbyte.org\" target=\"_blank\">Hotelbyte.org</a> : </p> <ul><li><a href=\"http://Hotelbyte.org/token#the-code\" target=\"_blank\">Créer un jeton</a></li><li><a href=\"http://Hotelbyte.org/crowdsale#the-code\" target=\"_blank\">Démarrer une crowdsale</a></li><li><a href=\"http://Hotelbyte.org/dao#the-code\" target=\"_blank\">Créer une organisation sur la blockchain</a></li></ul>",
             "buttons": {
                 "showContractInfo": "Afficher les infos du contrat",
                 "hideContractInfo": "Masquer les infos du contrat",

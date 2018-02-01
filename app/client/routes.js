@@ -10,7 +10,7 @@ FlowRouter.notFound = {
     }
 };
 
-// redirect on start to dahsboard on file protocol
+// redirect on start to dashboard on file protocol
 if(location.origin === 'file://') {
     FlowRouter.wait();
     FlowRouter.initialize({hashbang: true});
@@ -24,7 +24,7 @@ if(location.origin === 'file://') {
 FlowRouter.triggers.enter([function(){
     EthElements.Modal.hide();
     $(window).scrollTop(0);
-}, updateMistMenu]);
+}, updateDHIMenu]);
 
 
 
